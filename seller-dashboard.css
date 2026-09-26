@@ -1,0 +1,1173 @@
+/* =========================================================
+   ZASHARA SELLER DASHBOARD — Newly-Live Seller
+   Shares tokens with the onboarding + buyer pages.
+   ========================================================= */
+
+:root
+{
+    --zashara-sand:        #ead39c;
+    --zashara-sand-light:  #f8f7f4;
+
+    --zashara-gold:        #a66b0f;
+    --zashara-gold-dark:   #8a5809;
+    --zashara-gold-light:  #d4a24c;
+    --zashara-gold-soft:   #9b6b16;
+
+    --zashara-ink:         #1a120b;
+    --zashara-text:        #1a1a1a;
+    --zashara-text-muted:  #555555;
+    --zashara-text-soft:   #666666;
+
+    --zashara-success:     #2f8f4e;
+    --zashara-info:        #2b7bb9;
+    --zashara-warning:     #c98a00;
+
+    --zashara-radius:      16px;
+    --zashara-radius-sm:   12px;
+
+    --zashara-shadow:      0 4px 15px rgba(0, 0, 0, 0.08);
+    --zashara-shadow-lg:   0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+body
+{
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background-color: var(--zashara-sand);
+    color: var(--zashara-text);
+}
+
+html { scroll-behavior: smooth; }
+
+a:focus-visible,
+button:focus-visible
+{
+    outline: 3px solid var(--zashara-gold);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.zashara-header
+{
+    background-color: rgba(234, 211, 156, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1030;
+}
+
+.zashara-logo img
+{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+@media (min-width: 992px)
+{
+    .zashara-logo img { width: 90px; height: 90px; }
+}
+
+.zashara-icon-btn
+{
+    font-size: 1.4rem;
+    color: var(--zashara-ink);
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.zashara-icon-btn:hover
+{
+    color: var(--zashara-gold);
+    transform: scale(1.08);
+}
+
+.zashara-badge
+{
+    position: absolute;
+    top: -2px;
+    right: -4px;
+    background-color: var(--zashara-gold);
+    color: #fff;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 999px;
+    line-height: 1;
+}
+
+.zashara-desktop-nav a
+{
+    color: var(--zashara-ink);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.zashara-desktop-nav a:hover { color: var(--zashara-gold); }
+
+.zashara-live-pill
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(47, 143, 78, 0.12);
+    color: var(--zashara-success);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+}
+
+.zashara-live-dot
+{
+    width: 8px;
+    height: 8px;
+    background-color: var(--zashara-success);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(47, 143, 78, 0.2);
+    animation: zashara-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes zashara-pulse
+{
+    0%, 100% { box-shadow: 0 0 0 3px rgba(47, 143, 78, 0.2); }
+    50%      { box-shadow: 0 0 0 6px rgba(47, 143, 78, 0.08); }
+}
+
+.zashara-avatar-btn
+{
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.zashara-avatar-initials
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Offcanvas */
+.zashara-offcanvas { background-color: var(--zashara-sand-light); }
+
+.zashara-offcanvas-nav .nav-link
+{
+    color: var(--zashara-ink);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.zashara-offcanvas-nav .nav-link:hover { color: var(--zashara-gold); }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.zashara-btn-primary,
+.zashara-btn-cta
+{
+    background-color: var(--zashara-gold);
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.zashara-btn-primary:hover
+{
+    background-color: var(--zashara-gold-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.zashara-btn-primary.btn-sm,
+.zashara-btn-outline.btn-sm
+{
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+.zashara-btn-outline
+{
+    background-color: transparent;
+    border: 2px solid var(--zashara-gold);
+    color: var(--zashara-gold);
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 0.6rem 1.3rem;
+    border-radius: 10px;
+    transition: all 0.25s ease;
+}
+
+.zashara-btn-outline:hover
+{
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+}
+
+.zashara-btn-cta
+{
+    background-color: var(--zashara-gold-light);
+    color: var(--zashara-ink);
+}
+
+.zashara-btn-cta:hover
+{
+    background-color: #e6b862;
+    color: var(--zashara-ink);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   WELCOME / LIVE BANNER
+   ========================================================= */
+.zashara-welcome
+{
+    padding: 1.5rem 0 0.5rem;
+}
+
+.zashara-welcome-card
+{
+    background: linear-gradient(135deg, #fff8e8 0%, #fdf1d6 100%);
+    border: 1px solid rgba(166, 107, 15, 0.15);
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1.5rem;
+    box-shadow: var(--zashara-shadow);
+}
+
+@media (min-width: 768px)
+{
+    .zashara-welcome-card { padding: 2.25rem 2rem; }
+}
+
+.zashara-live-badge
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(47, 143, 78, 0.12);
+    color: var(--zashara-success);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+}
+
+.zashara-welcome-title
+{
+    font-size: clamp(1.5rem, 3.2vw, 2.1rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--zashara-ink);
+    margin-bottom: 0.75rem;
+}
+
+.zashara-welcome-sub
+{
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--zashara-text-muted);
+    max-width: 580px;
+    margin-bottom: 1.5rem;
+}
+
+.zashara-welcome-sub strong { color: var(--zashara-ink); }
+
+.zashara-welcome-actions
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.zashara-launch-graphic
+{
+    width: 140px;
+    height: 140px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(166, 107, 15, 0.1);
+    color: var(--zashara-gold);
+    border-radius: 50%;
+    font-size: 4rem;
+    margin: 0 auto;
+}
+
+/* =========================================================
+   KPI STRIP
+   ========================================================= */
+.zashara-kpi-section
+{
+    padding: 1rem 0;
+}
+
+.zashara-kpi-card
+{
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background-color: #ffffff;
+    border-radius: var(--zashara-radius);
+    padding: 1.25rem;
+    box-shadow: var(--zashara-shadow);
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.zashara-kpi-card:hover
+{
+    transform: translateY(-3px);
+    box-shadow: var(--zashara-shadow-lg);
+}
+
+.zashara-kpi-icon
+{
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3ede3;
+    color: var(--zashara-gold);
+    border-radius: 12px;
+    font-size: 1.4rem;
+}
+
+.zashara-kpi-label
+{
+    font-size: 0.78rem;
+    color: var(--zashara-text-soft);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin: 0 0 0.25rem;
+}
+
+.zashara-kpi-value
+{
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--zashara-ink);
+    margin: 0 0 0.25rem;
+    line-height: 1.1;
+}
+
+.zashara-kpi-trend
+{
+    font-size: 0.78rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.zashara-kpi-trend.up      { color: var(--zashara-success); }
+.zashara-kpi-trend.warn    { color: var(--zashara-warning); }
+.zashara-kpi-trend.neutral { color: var(--zashara-text-soft); }
+
+/* =========================================================
+   PANELS / SECTION SHELL
+   ========================================================= */
+.zashara-section { padding: 1rem 0; }
+
+.zashara-panel
+{
+    background-color: #ffffff;
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1.25rem;
+    box-shadow: var(--zashara-shadow);
+}
+
+@media (min-width: 768px)
+{
+    .zashara-panel { padding: 2.5rem 2rem; }
+}
+
+.zashara-section-title
+{
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-weight: 800;
+    color: var(--zashara-ink);
+}
+
+.zashara-section-description
+{
+    font-size: 0.95rem;
+    color: var(--zashara-text-muted);
+}
+
+.zashara-step-counter
+{
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--zashara-gold);
+    background-color: rgba(166, 107, 15, 0.12);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+}
+
+/* =========================================================
+   NEXT STEPS CHECKLIST
+   ========================================================= */
+.zashara-checklist
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.zashara-checklist-item
+{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    border-left: 4px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.zashara-checklist-item.active
+{
+    background-color: #fff8e9;
+    border-left-color: var(--zashara-gold);
+    box-shadow: 0 6px 18px rgba(166, 107, 15, 0.15);
+}
+
+.zashara-checklist-item.completed
+{
+    background-color: #f1f8f1;
+    border-left-color: var(--zashara-success);
+}
+
+.zashara-checklist-check
+{
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+    background-color: #eee9df;
+    color: var(--zashara-gold);
+}
+
+.zashara-checklist-item.active .zashara-checklist-check
+{
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+}
+
+.zashara-checklist-item.completed .zashara-checklist-check
+{
+    background-color: var(--zashara-success);
+    color: #ffffff;
+}
+
+.zashara-checklist-body
+{
+    flex: 1;
+    min-width: 0;
+}
+
+.zashara-checklist-body h3
+{
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: var(--zashara-ink);
+}
+
+.zashara-checklist-body p
+{
+    font-size: 0.9rem;
+    color: var(--zashara-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.zashara-checklist-badge
+{
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+}
+
+.zashara-checklist-badge.done
+{
+    background-color: rgba(47, 143, 78, 0.15);
+    color: var(--zashara-success);
+}
+
+/* =========================================================
+   ORDER CARDS
+   ========================================================= */
+.zashara-order-card
+{
+    position: relative;
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    padding: 1.25rem;
+    height: 100%;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.zashara-order-card:hover
+{
+    transform: translateY(-3px);
+    box-shadow: var(--zashara-shadow-lg);
+}
+
+.zashara-order-card--first
+{
+    border: 2px solid rgba(166, 107, 15, 0.35);
+    background: linear-gradient(180deg, #fff9ec 0%, #fdf3dd 100%);
+}
+
+.zashara-first-order-badge
+{
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    box-shadow: 0 4px 10px rgba(166, 107, 15, 0.35);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.zashara-order-id
+{
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.8rem;
+    color: var(--zashara-text-soft);
+    font-weight: 600;
+}
+
+.zashara-status-pill
+{
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zashara-status-pill.pending
+{
+    background-color: rgba(201, 138, 0, 0.15);
+    color: var(--zashara-warning);
+}
+
+.zashara-order-thumb
+{
+    width: 64px;
+    height: 64px;
+    border-radius: 10px;
+    object-fit: cover;
+    background-color: #ece6d8;
+    flex-shrink: 0;
+}
+
+.zashara-order-product
+{
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0 0 0.3rem;
+}
+
+.zashara-order-buyer,
+.zashara-order-location
+{
+    font-size: 0.85rem;
+    color: var(--zashara-text-soft);
+    margin: 0 0 0.2rem;
+}
+
+.zashara-order-total
+{
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--zashara-gold);
+}
+
+.zashara-order-tip
+{
+    background-color: rgba(166, 107, 15, 0.08);
+    border-radius: var(--zashara-radius-sm);
+    padding: 0.7rem 0.9rem;
+    font-size: 0.85rem;
+    color: var(--zashara-gold-soft);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    line-height: 1.5;
+}
+
+.zashara-order-tip i { flex-shrink: 0; margin-top: 2px; }
+
+/* Order help card */
+.zashara-order-help
+{
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.zashara-order-help-icon
+{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3ede3;
+    color: var(--zashara-gold);
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.zashara-order-help h3
+{
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--zashara-ink);
+}
+
+.zashara-order-help-list
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+}
+
+.zashara-order-help-list li
+{
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.55;
+}
+
+.zashara-order-help-list i
+{
+    color: var(--zashara-success);
+    font-weight: 800;
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.zashara-order-help .btn { align-self: flex-start; }
+
+/* =========================================================
+   PRODUCT CARDS
+   ========================================================= */
+.zashara-product-card
+{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    overflow: hidden;
+    box-shadow: var(--zashara-shadow);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.zashara-product-card:hover
+{
+    transform: translateY(-5px);
+    box-shadow: var(--zashara-shadow-lg);
+}
+
+.zashara-product-image
+{
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background-color: #ece6d8;
+}
+
+.zashara-product-image img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.zashara-product-status
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+}
+
+.zashara-product-status.live
+{
+    background-color: rgba(47, 143, 78, 0.9);
+    color: #ffffff;
+}
+
+.zashara-product-body
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.25rem;
+    flex: 1;
+}
+
+.zashara-product-body h3
+{
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+.zashara-product-price
+{
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--zashara-gold);
+    margin: 0;
+}
+
+.zashara-product-meta
+{
+    display: flex;
+    gap: 1rem;
+    font-size: 0.82rem;
+    color: var(--zashara-text-soft);
+    margin-bottom: 0.5rem;
+}
+
+.zashara-product-meta i { margin-right: 0.25rem; }
+
+.zashara-product-actions
+{
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+}
+
+.zashara-product-actions .btn { flex: 1; }
+
+/* Add product card */
+.zashara-add-product-card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.75rem;
+    padding: 2rem 1.5rem;
+    background-color: transparent;
+    border: 2px dashed #d9d0bb;
+    border-radius: var(--zashara-radius);
+    cursor: pointer;
+    color: var(--zashara-text-muted);
+    transition: all 0.25s ease;
+    min-height: 280px;
+}
+
+.zashara-add-product-card:hover
+{
+    border-color: var(--zashara-gold);
+    color: var(--zashara-gold);
+    background-color: rgba(166, 107, 15, 0.03);
+    transform: translateY(-3px);
+}
+
+.zashara-add-product-icon
+{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3ede3;
+    color: var(--zashara-gold);
+    border-radius: 50%;
+    font-size: 1.6rem;
+    transition: transform 0.25s ease;
+}
+
+.zashara-add-product-card:hover .zashara-add-product-icon
+{
+    transform: scale(1.1);
+}
+
+.zashara-add-product-card h3
+{
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0;
+    color: inherit;
+}
+
+.zashara-add-product-card p
+{
+    font-size: 0.88rem;
+    line-height: 1.55;
+    margin: 0;
+    max-width: 240px;
+}
+
+/* =========================================================
+   PROMOTE SECTION
+   ========================================================= */
+.zashara-promote-eyebrow
+{
+    display: inline-block;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--zashara-gold-soft);
+    margin-bottom: 0.5rem;
+}
+
+.zashara-share-link
+{
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--zashara-sand-light);
+    border: 1.5px solid #e3d9c2;
+    border-radius: var(--zashara-radius-sm);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+}
+
+.zashara-share-link i
+{
+    color: var(--zashara-gold);
+    font-size: 1.3rem;
+    flex-shrink: 0;
+}
+
+.zashara-share-link span
+{
+    flex: 1;
+    font-family: ui-monospace, "SF Mono", Menlo, monospace;
+    font-size: 0.9rem;
+    color: var(--zashara-text-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+}
+
+.zashara-share-options
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.zashara-share-option
+{
+    background-color: transparent;
+    border: 1.5px solid #e3d9c2;
+    color: var(--zashara-text-muted);
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all 0.2s ease;
+}
+
+.zashara-share-option:hover
+{
+    border-color: var(--zashara-gold);
+    color: var(--zashara-gold);
+    background-color: rgba(166, 107, 15, 0.05);
+}
+
+.zashara-promote-card
+{
+    background: linear-gradient(135deg, #fff8e8 0%, #fdf1d6 100%);
+    border: 1px solid rgba(166, 107, 15, 0.15);
+    border-radius: var(--zashara-radius);
+    padding: 1.75rem 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.zashara-promote-icon
+{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+    border-radius: 14px;
+    font-size: 1.6rem;
+}
+
+.zashara-promote-card h3
+{
+    font-size: 1.1rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--zashara-ink);
+    line-height: 1.35;
+}
+
+.zashara-promote-card p
+{
+    font-size: 0.92rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================================
+   EMPTY STATES (messages + reviews)
+   ========================================================= */
+.zashara-empty-state
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.85rem;
+    padding: 2.5rem 1.5rem;
+    background-color: var(--zashara-sand-light);
+    border: 1.5px dashed #d9d0bb;
+    border-radius: var(--zashara-radius);
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+.zashara-empty-state-icon
+{
+    width: 72px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee9df;
+    color: var(--zashara-gold);
+    border-radius: 50%;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.zashara-empty-state h3
+{
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--zashara-ink);
+}
+
+.zashara-empty-state p
+{
+    font-size: 0.93rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 460px;
+}
+
+.zashara-review-preview
+{
+    margin-top: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.zashara-review-stars
+{
+    display: flex;
+    gap: 0.2rem;
+    font-size: 1.2rem;
+}
+
+.zashara-review-stars.muted { color: #c9c1af; }
+
+.zashara-review-placeholder
+{
+    font-size: 0.82rem;
+    color: var(--zashara-text-soft);
+    margin: 0;
+    font-style: italic;
+}
+
+/* =========================================================
+   SELLER GUIDE BANNER
+   ========================================================= */
+.zashara-guide
+{
+    background: linear-gradient(135deg, #fff8e8 0%, #fdf1d6 100%);
+    border: 1px solid rgba(166, 107, 15, 0.15);
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1.5rem;
+}
+
+.zashara-guide-title
+{
+    font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+    font-weight: 800;
+    color: var(--zashara-ink);
+    margin-bottom: 0.5rem;
+}
+
+.zashara-guide-sub
+{
+    font-size: 0.98rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.zashara-footer
+{
+    background-color: var(--zashara-ink);
+    color: #ffffff;
+    padding: 3.5rem 0 1.25rem;
+    margin-top: 2rem;
+}
+
+.zashara-footer-brand
+{
+    color: var(--zashara-gold-light);
+    font-weight: 800;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.zashara-footer-tagline
+{
+    color: #d8d8d8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.zashara-footer-heading
+{
+    color: var(--zashara-gold-light);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zashara-footer-list
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.zashara-footer-list li { margin-bottom: 0.6rem; }
+
+.zashara-footer-list a
+{
+    color: #d8d8d8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.zashara-footer-list a:hover { color: var(--zashara-gold-light); }
+
+.zashara-footer-bottom
+{
+    border-top: 1px solid #3a2a18;
+    padding-top: 1.25rem;
+    text-align: center;
+}
+
+.zashara-footer-bottom p
+{
+    color: #a8a8a8;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce)
+{
+    *,
+    *::before,
+    *::after
+    {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}

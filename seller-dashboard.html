@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seller Dashboard — Zashara</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+    >
+    <link rel="stylesheet" href="seller-dashboard.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header class="zashara-header sticky-top">
+        <div class="container-fluid px-3 px-md-4">
+            <div class="d-flex align-items-center justify-content-between py-2">
+
+                <button
+                    class="btn btn-link zashara-icon-btn d-lg-none"
+                    type="button"
+                    data-bs-toggle="offcanvas"
+                    data-bs-target="#sellerMobileMenu"
+                    aria-controls="sellerMobileMenu"
+                    aria-label="Open menu"
+                >
+                    <i class="bi bi-list"></i>
+                </button>
+
+                <a href="#" class="zashara-logo d-flex align-items-center">
+                    <img src="logo.png" alt="Zashara logo">
+                </a>
+
+                <nav class="d-none d-lg-flex align-items-center gap-4 zashara-desktop-nav">
+                    <a href="#dashboard">Dashboard</a>
+                    <a href="#orders">Orders</a>
+                    <a href="#products">Products</a>
+                    <a href="#promote">Promote</a>
+                    <a href="#messages">Messages</a>
+                </nav>
+
+                <div class="d-flex align-items-center gap-2 gap-md-3">
+                    <span class="zashara-live-pill d-none d-md-inline-flex">
+                        <span class="zashara-live-dot"></span> Store is live
+                    </span>
+
+                    <button
+                        class="btn btn-link zashara-icon-btn position-relative"
+                        type="button"
+                        aria-label="Messages"
+                    >
+                        <i class="bi bi-chat-dots"></i>
+                    </button>
+
+                    <button
+                        class="btn btn-link zashara-icon-btn position-relative"
+                        type="button"
+                        aria-label="Notifications"
+                    >
+                        <i class="bi bi-bell"></i>
+                        <span class="zashara-badge">1</span>
+                    </button>
+
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-link zashara-avatar-btn"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                            aria-label="Account menu"
+                        >
+                            <span class="zashara-avatar-initials">AK</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                            <li><a class="dropdown-item" href="#">My Storefront</a></li>
+                            <li><a class="dropdown-item" href="#">Store Settings</a></li>
+                            <li><a class="dropdown-item" href="#">Payout Settings</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="seller-onboarding.html">Setup Checklist</a></li>
+                            <li><a class="dropdown-item" href="index.html">Switch to Buyer View</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============ MOBILE OFFCANVAS MENU ============ -->
+    <div
+        class="offcanvas offcanvas-start zashara-offcanvas"
+        tabindex="-1"
+        id="sellerMobileMenu"
+        aria-labelledby="sellerMobileMenuLabel"
+    >
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="sellerMobileMenuLabel">Seller Menu</h5>
+            <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+            ></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="nav flex-column zashara-offcanvas-nav">
+                <li class="nav-item"><a class="nav-link" href="#dashboard">Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="#orders">Orders</a></li>
+                <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+                <li class="nav-item"><a class="nav-link" href="#promote">Promote Store</a></li>
+                <li class="nav-item"><a class="nav-link" href="#messages">Messages</a></li>
+                <li class="nav-item"><a class="nav-link" href="#reviews">Reviews</a></li>
+                <li class="nav-item"><a class="nav-link" href="seller-onboarding.html">Setup Checklist</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html">Switch to Buyer View</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ================= WELCOME / LIVE BANNER ================= -->
+    <section class="zashara-welcome" id="dashboard">
+        <div class="container">
+            <div class="zashara-welcome-card">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-8">
+                        <div class="zashara-live-badge">
+                            <i class="bi bi-check-circle-fill"></i>
+                            Setup complete · Store is live
+                        </div>
+
+                        <h1 class="zashara-welcome-title">
+                            You're live, Akan Cooperative 🎉
+                        </h1>
+
+                        <p class="zashara-welcome-sub">
+                            Your store has been open for <strong>3 days</strong>. Here's how things are going
+                            so far — and what to do next to get your first sales moving.
+                        </p>
+
+                        <div class="zashara-welcome-actions">
+                            <button class="btn zashara-btn-primary">
+                                <i class="bi bi-plus-lg me-1"></i> Add Product
+                            </button>
+                            <button class="btn zashara-btn-outline">
+                                <i class="bi bi-eye me-1"></i> View My Storefront
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-4 text-center d-none d-lg-block">
+                        <div class="zashara-launch-graphic">
+                            <i class="bi bi-shop-window"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= KPI STRIP (small, honest numbers) ================= -->
+    <section class="zashara-kpi-section">
+        <div class="container">
+            <div class="row g-3">
+                <div class="col-6 col-lg-3">
+                    <div class="zashara-kpi-card">
+                        <div class="zashara-kpi-icon"><i class="bi bi-eye"></i></div>
+                        <div>
+                            <p class="zashara-kpi-label">Store views</p>
+                            <p class="zashara-kpi-value">47</p>
+                            <p class="zashara-kpi-trend up">
+                                <i class="bi bi-arrow-up-right"></i> New this week
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="zashara-kpi-card">
+                        <div class="zashara-kpi-icon"><i class="bi bi-heart"></i></div>
+                        <div>
+                            <p class="zashara-kpi-label">Product saves</p>
+                            <p class="zashara-kpi-value">6</p>
+                            <p class="zashara-kpi-trend neutral">Buyers watching</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="zashara-kpi-card">
+                        <div class="zashara-kpi-icon"><i class="bi bi-box-seam"></i></div>
+                        <div>
+                            <p class="zashara-kpi-label">Orders</p>
+                            <p class="zashara-kpi-value">1</p>
+                            <p class="zashara-kpi-trend up">
+                                <i class="bi bi-stars"></i> First order!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-lg-3">
+                    <div class="zashara-kpi-card">
+                        <div class="zashara-kpi-icon"><i class="bi bi-cash-coin"></i></div>
+                        <div>
+                            <p class="zashara-kpi-label">Earnings</p>
+                            <p class="zashara-kpi-value">$250</p>
+                            <p class="zashara-kpi-trend neutral">Pending delivery</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= NEXT STEPS ================= -->
+    <section class="zashara-section" id="next-steps">
+        <div class="container">
+            <div class="zashara-panel">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                    <div>
+                        <h2 class="zashara-section-title mb-1">Your Next Steps</h2>
+                        <p class="zashara-section-description mb-0">
+                            Small actions that make a big difference in your first weeks
+                        </p>
+                    </div>
+                    <span class="zashara-step-counter">0 of 3 complete</span>
+                </div>
+
+                <div class="zashara-checklist">
+
+                    <div class="zashara-checklist-item active">
+                        <div class="zashara-checklist-check">
+                            <i class="bi bi-1-circle-fill"></i>
+                        </div>
+                        <div class="zashara-checklist-body">
+                            <h3>Add a second product</h3>
+                            <p>
+                                Stores with 3+ products get <strong>4× more views</strong>.
+                                Add one more item to widen your reach.
+                            </p>
+                        </div>
+                        <button class="btn zashara-btn-primary btn-sm">
+                            Add Product
+                        </button>
+                    </div>
+
+                    <div class="zashara-checklist-item">
+                        <div class="zashara-checklist-check">
+                            <i class="bi bi-2-circle"></i>
+                        </div>
+                        <div class="zashara-checklist-body">
+                            <h3>Share your storefront link</h3>
+                            <p>
+                                Send your Zashara store link to your community on
+                                WhatsApp, Instagram, or wherever you're active.
+                            </p>
+                        </div>
+                        <button class="btn zashara-btn-outline btn-sm">
+                            Copy Link
+                        </button>
+                    </div>
+
+                    <div class="zashara-checklist-item">
+                        <div class="zashara-checklist-check">
+                            <i class="bi bi-3-circle"></i>
+                        </div>
+                        <div class="zashara-checklist-body">
+                            <h3>Respond within 24 hours</h3>
+                            <p>
+                                Fast replies help you appear higher in search
+                                and turn browsers into buyers.
+                            </p>
+                        </div>
+                        <button class="btn zashara-btn-outline btn-sm">
+                            View Inbox
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= ORDERS ================= -->
+    <section class="zashara-section" id="orders">
+        <div class="container">
+            <div class="zashara-panel">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                    <div>
+                        <h2 class="zashara-section-title mb-1">Your First Order</h2>
+                        <p class="zashara-section-description mb-0">
+                            Someone just bought from you — nice work!
+                        </p>
+                    </div>
+                    <button class="btn zashara-btn-outline">View All Orders</button>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-lg-6">
+                        <div class="zashara-order-card zashara-order-card--first">
+                            <div class="zashara-first-order-badge">
+                                <i class="bi bi-stars"></i> First order
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-start mb-3">
+                                <span class="zashara-order-id">#ZA-1042</span>
+                                <span class="zashara-status-pill pending">Pending</span>
+                            </div>
+
+                            <div class="d-flex gap-3 mb-3">
+                                <img src="Handbag.png" alt="Nhyira handbag" class="zashara-order-thumb">
+                                <div>
+                                    <h3 class="zashara-order-product">Nhyira Handbag</h3>
+                                    <p class="zashara-order-buyer">
+                                        <i class="bi bi-person"></i> Buyer: Amara O.
+                                    </p>
+                                    <p class="zashara-order-location">
+                                        <i class="bi bi-geo-alt"></i> Lagos, Nigeria
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="zashara-order-tip">
+                                <i class="bi bi-info-circle"></i>
+                                Ship within <strong>2 days</strong> to keep your store in good standing.
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+                                <span class="zashara-order-total">$250</span>
+                                <button class="btn zashara-btn-primary btn-sm">
+                                    Mark as Shipped
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6">
+                        <div class="zashara-order-help h-100">
+                            <div class="zashara-order-help-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <h3>How shipping works on Zashara</h3>
+                            <ul class="zashara-order-help-list">
+                                <li>
+                                    <i class="bi bi-check2"></i>
+                                    Pack the item safely and photograph it before shipping.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2"></i>
+                                    Mark the order as shipped to notify the buyer.
+                                </li>
+                                <li>
+                                    <i class="bi bi-check2"></i>
+                                    Payment is released after the buyer confirms delivery.
+                                </li>
+                            </ul>
+                            <button class="btn zashara-btn-outline btn-sm">
+                                <i class="bi bi-book me-1"></i> Full Shipping Guide
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MY PRODUCTS ================= -->
+    <section class="zashara-section" id="products">
+        <div class="container">
+            <div class="zashara-panel">
+                <div class="d-flex flex-wrap justify-content-between align-items-center mb-4 gap-2">
+                    <div>
+                        <h2 class="zashara-section-title mb-1">My Products</h2>
+                        <p class="zashara-section-description mb-0">
+                            2 products live in your store
+                        </p>
+                    </div>
+                    <button class="btn zashara-btn-primary">
+                        <i class="bi bi-plus-lg me-1"></i> New Listing
+                    </button>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="zashara-product-card h-100">
+                            <div class="zashara-product-image">
+                                <img src="Handbag.png" alt="Nhyira handbag">
+                                <span class="zashara-product-status live">Live</span>
+                            </div>
+                            <div class="zashara-product-body">
+                                <h3>Nhyira</h3>
+                                <p class="zashara-product-price">$250</p>
+                                <div class="zashara-product-meta">
+                                    <span><i class="bi bi-eye"></i> 38 views</span>
+                                    <span><i class="bi bi-heart"></i> 5 saves</span>
+                                </div>
+                                <div class="zashara-product-actions">
+                                    <button class="btn zashara-btn-outline btn-sm">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </button>
+                                    <button class="btn zashara-btn-outline btn-sm">
+                                        <i class="bi bi-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="zashara-product-card h-100">
+                            <div class="zashara-product-image">
+                                <img src="Pot.png" alt="Kushia pottery">
+                                <span class="zashara-product-status live">Live</span>
+                            </div>
+                            <div class="zashara-product-body">
+                                <h3>Kushia</h3>
+                                <p class="zashara-product-price">$50</p>
+                                <div class="zashara-product-meta">
+                                    <span><i class="bi bi-eye"></i> 9 views</span>
+                                    <span><i class="bi bi-heart"></i> 1 save</span>
+                                </div>
+                                <div class="zashara-product-actions">
+                                    <button class="btn zashara-btn-outline btn-sm">
+                                        <i class="bi bi-pencil"></i> Edit
+                                    </button>
+                                    <button class="btn zashara-btn-outline btn-sm">
+                                        <i class="bi bi-share"></i> Share
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- "+ Add another" placeholder card -->
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <button class="zashara-add-product-card w-100 h-100">
+                            <div class="zashara-add-product-icon">
+                                <i class="bi bi-plus-lg"></i>
+                            </div>
+                            <h3>Add another product</h3>
+                            <p>
+                                Stores with more products get seen by more buyers.
+                            </p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PROMOTE YOUR STORE ================= -->
+    <section class="zashara-section" id="promote">
+        <div class="container">
+            <div class="zashara-panel">
+                <div class="row g-4 align-items-center">
+                    <div class="col-12 col-lg-7">
+                        <span class="zashara-promote-eyebrow">Promote your store</span>
+                        <h2 class="zashara-section-title mb-2">
+                            Share your Zashara link
+                        </h2>
+                        <p class="zashara-section-description mb-4">
+                            Buyers can find you directly when you share your storefront
+                            link. Anyone who visits becomes a potential customer.
+                        </p>
+
+                        <div class="zashara-share-link">
+                            <i class="bi bi-link-45deg"></i>
+                            <span id="share-url">zashara.com/store/akan-cooperative</span>
+                            <button
+                                class="btn zashara-btn-primary btn-sm"
+                                id="copy-link"
+                                type="button"
+                            >
+                                <i class="bi bi-clipboard me-1"></i> Copy
+                            </button>
+                        </div>
+
+                        <div class="zashara-share-options">
+                            <button class="zashara-share-option">
+                                <i class="bi bi-whatsapp"></i> WhatsApp
+                            </button>
+                            <button class="zashara-share-option">
+                                <i class="bi bi-instagram"></i> Instagram
+                            </button>
+                            <button class="zashara-share-option">
+                                <i class="bi bi-facebook"></i> Facebook
+                            </button>
+                            <button class="zashara-share-option">
+                                <i class="bi bi-envelope"></i> Email
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-5">
+                        <div class="zashara-promote-card">
+                            <div class="zashara-promote-icon">
+                                <i class="bi bi-megaphone"></i>
+                            </div>
+                            <h3>Sellers who share get 6× more orders</h3>
+                            <p>
+                                Buyers often find new stores through word of mouth.
+                                Share your storefront once a week to stay visible.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= MESSAGES ================= -->
+    <section class="zashara-section" id="messages">
+        <div class="container">
+            <div class="zashara-panel">
+                <h2 class="zashara-section-title text-center">Buyer Messages</h2>
+                <p class="zashara-section-description text-center mb-4">
+                    When buyers reach out, their messages will show up here
+                </p>
+
+                <div class="zashara-empty-state">
+                    <div class="zashara-empty-state-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <h3>No messages yet</h3>
+                    <p>
+                        Buyers can chat with you to negotiate or ask questions.
+                        Most sellers get their first inquiry within the first week
+                        of going live.
+                    </p>
+                    <button class="btn zashara-btn-outline btn-sm">
+                        <i class="bi bi-bell me-1"></i> Notify me when a message arrives
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= REVIEWS ================= -->
+    <section class="zashara-section" id="reviews">
+        <div class="container">
+            <div class="zashara-panel">
+                <h2 class="zashara-section-title text-center">Reviews</h2>
+                <p class="zashara-section-description text-center mb-4">
+                    Reviews build trust — buyers look for them before they purchase
+                </p>
+
+                <div class="zashara-empty-state">
+                    <div class="zashara-empty-state-icon">
+                        <i class="bi bi-star"></i>
+                    </div>
+                    <h3>Your first review is on the way</h3>
+                    <p>
+                        Reviews appear here after buyers receive their orders.
+                        When your first buyer confirms delivery, you'll have the
+                        option to request a review from them.
+                    </p>
+
+                    <div class="zashara-review-preview">
+                        <div class="zashara-review-stars muted">
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                            <i class="bi bi-star"></i>
+                        </div>
+                        <p class="zashara-review-placeholder">Awaiting your first review</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= SELLER GUIDE ================= -->
+    <section class="zashara-section">
+        <div class="container">
+            <div class="zashara-guide">
+                <div class="row align-items-center g-4">
+                    <div class="col-12 col-lg-8">
+                        <h2 class="zashara-guide-title">Grow your first sales</h2>
+                        <p class="zashara-guide-sub">
+                            Short guide on getting your first 10 orders — pricing,
+                            promotion, and how to keep buyers coming back.
+                        </p>
+                    </div>
+                    <div class="col-12 col-lg-4 text-lg-end">
+                        <button class="btn zashara-btn-cta">
+                            <i class="bi bi-book me-1"></i> Read Guide
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="zashara-footer">
+        <div class="container">
+            <div class="row g-4 pb-4">
+                <div class="col-12 col-lg-4">
+                    <h2 class="zashara-footer-brand">Zashara</h2>
+                    <p class="zashara-footer-tagline">
+                        Connecting Buyers and Sellers directly.
+                    </p>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2 offset-lg-1">
+                    <h3 class="zashara-footer-heading">Selling</h3>
+                    <ul class="zashara-footer-list">
+                        <li><a href="#products">My Products</a></li>
+                        <li><a href="#orders">Orders</a></li>
+                        <li><a href="#promote">Promote Store</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <h3 class="zashara-footer-heading">Support</h3>
+                    <ul class="zashara-footer-list">
+                        <li><a href="#">Seller Guide</a></li>
+                        <li><a href="#">Shipping Help</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-6 col-md-4 col-lg-2">
+                    <h3 class="zashara-footer-heading">Account</h3>
+                    <ul class="zashara-footer-list">
+                        <li><a href="seller-onboarding.html">Setup Checklist</a></li>
+                        <li><a href="#">Store Settings</a></li>
+                        <li><a href="index.html">Buyer View</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="zashara-footer-bottom">
+                <p>© 2026 Zashara. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="seller-dashboard.js"></script>
+</body>
+</html>

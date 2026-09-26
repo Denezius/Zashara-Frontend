@@ -1,0 +1,823 @@
+/* =========================================================
+   ZASHARA SELLER — NEW SELLER ONBOARDING
+   Shares tokens with the other Zashara pages.
+   ========================================================= */
+
+:root
+{
+    --zashara-sand:        #ead39c;
+    --zashara-sand-light:  #f8f7f4;
+
+    --zashara-gold:        #a66b0f;
+    --zashara-gold-dark:   #8a5809;
+    --zashara-gold-light:  #d4a24c;
+    --zashara-gold-soft:   #9b6b16;
+
+    --zashara-ink:         #1a120b;
+    --zashara-text:        #1a1a1a;
+    --zashara-text-muted:  #555555;
+    --zashara-text-soft:   #666666;
+
+    --zashara-success:     #2f8f4e;
+    --zashara-info:        #2b7bb9;
+
+    --zashara-radius:      16px;
+    --zashara-radius-sm:   12px;
+
+    --zashara-shadow:      0 4px 15px rgba(0, 0, 0, 0.08);
+    --zashara-shadow-lg:   0 12px 28px rgba(0, 0, 0, 0.14);
+}
+
+body
+{
+    font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    background-color: var(--zashara-sand);
+    color: var(--zashara-text);
+}
+
+html { scroll-behavior: smooth; }
+
+a:focus-visible,
+button:focus-visible
+{
+    outline: 3px solid var(--zashara-gold);
+    outline-offset: 2px;
+    border-radius: 6px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+.zashara-header
+{
+    background-color: rgba(234, 211, 156, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1030;
+}
+
+.zashara-logo img
+{
+    width: 70px;
+    height: 70px;
+    object-fit: contain;
+}
+
+@media (min-width: 992px)
+{
+    .zashara-logo img { width: 90px; height: 90px; }
+}
+
+.zashara-icon-btn
+{
+    font-size: 1.4rem;
+    color: var(--zashara-ink);
+    padding: 0.25rem 0.5rem;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.zashara-icon-btn:hover
+{
+    color: var(--zashara-gold);
+    transform: scale(1.08);
+}
+
+.zashara-desktop-nav a
+{
+    color: var(--zashara-ink);
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.zashara-desktop-nav a:hover { color: var(--zashara-gold); }
+
+.zashara-setup-pill
+{
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: rgba(166, 107, 15, 0.12);
+    color: var(--zashara-gold-soft);
+    font-weight: 700;
+    font-size: 0.82rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+}
+
+.zashara-avatar-btn
+{
+    padding: 0;
+    border: none;
+    background: transparent;
+}
+
+.zashara-avatar-initials
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Offcanvas */
+.zashara-offcanvas { background-color: var(--zashara-sand-light); }
+
+.zashara-offcanvas-nav .nav-link
+{
+    color: var(--zashara-ink);
+    font-weight: 600;
+    font-size: 1.05rem;
+    padding: 0.75rem 0.5rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.zashara-offcanvas-nav .nav-link:hover { color: var(--zashara-gold); }
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+.zashara-btn-primary,
+.zashara-btn-cta
+{
+    background-color: var(--zashara-gold);
+    border: none;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    transition: background-color 0.25s ease, transform 0.25s ease;
+}
+
+.zashara-btn-primary:hover
+{
+    background-color: var(--zashara-gold-dark);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.zashara-btn-primary.btn-sm
+{
+    padding: 0.45rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 8px;
+}
+
+.zashara-btn-cta
+{
+    background-color: var(--zashara-gold-light);
+    color: var(--zashara-ink);
+}
+
+.zashara-btn-cta:hover
+{
+    background-color: #e6b862;
+    color: var(--zashara-ink);
+    transform: translateY(-2px);
+}
+
+/* =========================================================
+   WELCOME HERO
+   ========================================================= */
+.zashara-onboarding-hero
+{
+    padding: 2rem 0 1rem;
+}
+
+.zashara-hero-eyebrow
+{
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--zashara-gold-soft);
+    margin-bottom: 0.5rem;
+}
+
+.zashara-hero-title
+{
+    font-size: clamp(1.6rem, 3.6vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--zashara-ink);
+    margin-bottom: 0.75rem;
+}
+
+.zashara-hero-sub
+{
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--zashara-text-muted);
+    max-width: 560px;
+    margin-bottom: 1.5rem;
+}
+
+.zashara-hero-illustration
+{
+    max-width: 340px;
+    border-radius: 24px;
+    box-shadow: var(--zashara-shadow-lg);
+}
+
+/* Progress bar */
+.zashara-progress-wrap
+{
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: var(--zashara-radius);
+    padding: 1.1rem 1.25rem;
+    max-width: 520px;
+    box-shadow: var(--zashara-shadow);
+}
+
+.zashara-progress-label
+{
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--zashara-text-soft);
+}
+
+.zashara-progress-value
+{
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--zashara-gold);
+}
+
+.zashara-progress
+{
+    width: 100%;
+    height: 10px;
+    background-color: #e9ddc4;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.zashara-progress-bar
+{
+    height: 100%;
+    background: linear-gradient(90deg, var(--zashara-gold-light), var(--zashara-gold));
+    border-radius: 999px;
+    transition: width 0.5s ease;
+}
+
+.zashara-progress-hint
+{
+    font-size: 0.85rem;
+    color: var(--zashara-text-soft);
+    margin: 0.6rem 0 0;
+}
+
+/* =========================================================
+   PANELS / SECTION SHELL
+   ========================================================= */
+.zashara-section { padding: 1rem 0; }
+
+.zashara-panel
+{
+    background-color: #ffffff;
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1.25rem;
+    box-shadow: var(--zashara-shadow);
+}
+
+@media (min-width: 768px)
+{
+    .zashara-panel { padding: 2.5rem 2rem; }
+}
+
+.zashara-section-title
+{
+    font-size: clamp(1.3rem, 3vw, 1.75rem);
+    font-weight: 800;
+    color: var(--zashara-ink);
+}
+
+.zashara-section-description
+{
+    font-size: 0.95rem;
+    color: var(--zashara-text-muted);
+}
+
+.zashara-step-counter
+{
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--zashara-gold);
+    background-color: rgba(166, 107, 15, 0.12);
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+}
+
+/* =========================================================
+   ONBOARDING CHECKLIST
+   ========================================================= */
+.zashara-checklist
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.zashara-checklist-item
+{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    border-left: 4px solid transparent;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.zashara-checklist-item.completed
+{
+    background-color: #f1f8f1;
+    border-left-color: var(--zashara-success);
+}
+
+.zashara-checklist-item.active
+{
+    background-color: #fff8e9;
+    border-left-color: var(--zashara-gold);
+    box-shadow: 0 6px 18px rgba(166, 107, 15, 0.15);
+}
+
+.zashara-checklist-item.locked
+{
+    background-color: #f4f2ec;
+    opacity: 0.85;
+}
+
+.zashara-checklist-check
+{
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.zashara-checklist-item.completed .zashara-checklist-check
+{
+    background-color: var(--zashara-success);
+    color: #ffffff;
+}
+
+.zashara-checklist-item.active .zashara-checklist-check
+{
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+}
+
+.zashara-checklist-item.locked .zashara-checklist-check
+{
+    background-color: #d9d4c8;
+    color: #6f6a5e;
+}
+
+.zashara-checklist-body
+{
+    flex: 1;
+    min-width: 0;
+}
+
+.zashara-checklist-body h3
+{
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    color: var(--zashara-ink);
+}
+
+.zashara-checklist-body p
+{
+    font-size: 0.9rem;
+    color: var(--zashara-text-muted);
+    margin: 0;
+    line-height: 1.5;
+}
+
+.zashara-checklist-item.locked .zashara-checklist-body h3,
+.zashara-checklist-item.locked .zashara-checklist-body p
+{
+    color: #7a756a;
+}
+
+.zashara-checklist-badge
+{
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+}
+
+.zashara-checklist-badge.done
+{
+    background-color: rgba(47, 143, 78, 0.15);
+    color: var(--zashara-success);
+}
+
+.zashara-checklist-lock
+{
+    font-size: 1.1rem;
+    color: #9a948a;
+    flex-shrink: 0;
+}
+
+.zashara-checklist-footer
+{
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    font-size: 0.88rem;
+    color: var(--zashara-text-soft);
+}
+
+/* =========================================================
+   TIPS CARDS
+   ========================================================= */
+.zashara-tip-card
+{
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    background-color: var(--zashara-sand-light);
+    border-radius: var(--zashara-radius);
+    padding: 1.5rem;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.zashara-tip-card:hover
+{
+    transform: translateY(-4px);
+    box-shadow: var(--zashara-shadow-lg);
+}
+
+.zashara-tip-icon
+{
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3ede3;
+    color: var(--zashara-gold);
+    border-radius: 12px;
+    font-size: 1.5rem;
+}
+
+.zashara-tip-card h3
+{
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--zashara-ink);
+}
+
+.zashara-tip-card p
+{
+    font-size: 0.93rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.55;
+    margin: 0;
+}
+
+/* =========================================================
+   STOREFRONT PREVIEW
+   ========================================================= */
+.zashara-preview-frame
+{
+    background: linear-gradient(135deg, #f3ede3 0%, #ece1cc 100%);
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.zashara-preview-storefront
+{
+    background-color: #ffffff;
+    border-radius: var(--zashara-radius);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: var(--zashara-shadow);
+}
+
+.zashara-preview-avatar
+{
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background-color: var(--zashara-gold);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    border: 3px solid #f3ede3;
+}
+
+.zashara-preview-storefront h3
+{
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin: 0 0 0.35rem;
+    color: var(--zashara-ink);
+}
+
+.zashara-preview-location
+{
+    font-size: 0.88rem;
+    color: var(--zashara-text-soft);
+    margin: 0 0 0.5rem;
+}
+
+.zashara-preview-location i { color: var(--zashara-gold); }
+
+.zashara-preview-tagline
+{
+    font-size: 0.92rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.55;
+    margin: 0 0 1.25rem;
+}
+
+.zashara-preview-stats
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    margin-bottom: 1rem;
+}
+
+.zashara-preview-stat-value
+{
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--zashara-text-soft);
+    margin: 0;
+}
+
+.zashara-preview-stat-label
+{
+    font-size: 0.78rem;
+    color: var(--zashara-text-soft);
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zashara-preview-hint
+{
+    font-size: 0.82rem;
+    color: var(--zashara-gold-soft);
+    font-weight: 600;
+    margin: 0;
+}
+
+.zashara-preview-hint i { margin-right: 0.3rem; }
+
+/* =========================================================
+   EMPTY STATES
+   ========================================================= */
+.zashara-empty-card
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.75rem;
+    background-color: var(--zashara-sand-light);
+    border: 1.5px dashed #d9d0bb;
+    border-radius: var(--zashara-radius);
+    padding: 1.75rem 1.25rem;
+    height: 100%;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.zashara-empty-card:hover
+{
+    border-color: var(--zashara-gold);
+    transform: translateY(-3px);
+}
+
+.zashara-empty-icon
+{
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee9df;
+    color: var(--zashara-gold);
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.zashara-empty-card h3
+{
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    color: var(--zashara-ink);
+}
+
+.zashara-empty-card p
+{
+    font-size: 0.88rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.55;
+    margin: 0;
+    flex: 1;
+}
+
+.zashara-empty-lock
+{
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #8a857b;
+    background-color: #ece8dd;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+/* =========================================================
+   SELLER GUIDE BANNER
+   ========================================================= */
+.zashara-guide
+{
+    background: linear-gradient(135deg, #fff8e8 0%, #fdf1d6 100%);
+    border: 1px solid rgba(166, 107, 15, 0.15);
+    border-radius: var(--zashara-radius);
+    padding: 2rem 1.5rem;
+}
+
+.zashara-guide-title
+{
+    font-size: clamp(1.25rem, 2.8vw, 1.6rem);
+    font-weight: 800;
+    color: var(--zashara-ink);
+    margin-bottom: 0.5rem;
+}
+
+.zashara-guide-sub
+{
+    font-size: 0.98rem;
+    color: var(--zashara-text-muted);
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* =========================================================
+   FINAL CTA
+   ========================================================= */
+.zashara-cta
+{
+    background: linear-gradient(135deg, #1a120b 0%, #2a1c10 100%);
+    border-radius: var(--zashara-radius);
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px)
+{
+    .zashara-cta { padding: 4rem 3rem; }
+}
+
+.zashara-cta-content
+{
+    max-width: 640px;
+    margin: 0 auto;
+}
+
+.zashara-cta-content h2
+{
+    font-size: clamp(1.5rem, 3.2vw, 2.2rem);
+    font-weight: 800;
+    color: var(--zashara-gold-light);
+    margin-bottom: 1rem;
+}
+
+.zashara-cta-content p
+{
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: #f1e7d0;
+    margin-bottom: 2rem;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.zashara-footer
+{
+    background-color: var(--zashara-ink);
+    color: #ffffff;
+    padding: 3.5rem 0 1.25rem;
+    margin-top: 2rem;
+}
+
+.zashara-footer-brand
+{
+    color: var(--zashara-gold-light);
+    font-weight: 800;
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.zashara-footer-tagline
+{
+    color: #d8d8d8;
+    line-height: 1.6;
+    margin: 0;
+}
+
+.zashara-footer-heading
+{
+    color: var(--zashara-gold-light);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.zashara-footer-list
+{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.zashara-footer-list li { margin-bottom: 0.6rem; }
+
+.zashara-footer-list a
+{
+    color: #d8d8d8;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.zashara-footer-list a:hover { color: var(--zashara-gold-light); }
+
+.zashara-footer-bottom
+{
+    border-top: 1px solid #3a2a18;
+    padding-top: 1.25rem;
+    text-align: center;
+}
+
+.zashara-footer-bottom p
+{
+    color: #a8a8a8;
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+@media (prefers-reduced-motion: reduce)
+{
+    *,
+    *::before,
+    *::after
+    {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
